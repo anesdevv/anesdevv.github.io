@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sebai Anes | MVP Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --sand: #f4f1de;
+      --sand-dark: #eae6d5;
+      --stone-900: #1c1917;
+      --stone-800: #292524;
+      --stone-700: #44403c;
+      --stone-200: #e7e5e4;
+      --majorelle-blue: #1c69d4;
+      --terracotta: #e07a5f;
+      --white: #ffffff;
+      --blue-glow: rgba(28, 105, 212, 0.4);
+      --font-heading: "Playfair Display", serif;
+      --font-body: "Inter", sans-serif;
+      --radius-capsule: 9999px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-colors: color 0.3s ease, background-color 0.3s ease,
+        border-color 0.3s ease;
+      --shadow-soft: 0 4px 20px -4px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 10px 30px -8px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.18);
+      --shadow-blue: 0 0 40px rgba(28, 105, 212, 0.4);
+      --shadow-terra: 0 10px 25px -5px rgba(224, 122, 95, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top right,
+          rgba(28, 105, 212, 0.08),
+          transparent 40%),
+        radial-gradient(circle at 20% 10%,
+          rgba(224, 122, 95, 0.12),
+          transparent 45%),
+        var(--sand);
+      color: var(--stone-900);
+      line-height: 1.6;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.35;
+    }
+
+    body::before {
+      left: 0;
+      background: linear-gradient(to right,
+          rgba(28, 105, 212, 0.12),
+          transparent);
+    }
+
+    body::after {
+      right: 0;
+      background: linear-gradient(to left,
+          rgba(28, 105, 212, 0.12),
+          transparent);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(244, 241, 222, 0.88);
+      border-bottom: 1px solid var(--stone-200);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      font-size: 1.3rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--stone-700);
+      transition: var(--transition-colors);
+    }
+
+    .nav-links a:hover {
+      color: var(--majorelle-blue);
+    }
+
+    .hero {
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      color: var(--majorelle-blue);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-heading);
+      letter-spacing: -0.7px;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 4vw, 3.8rem);
+      margin: 1rem 0 1.2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--stone-700);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2.2rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: var(--radius-capsule);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-primary {
+      background: var(--stone-900);
+      color: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: var(--majorelle-blue);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-blue);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--stone-900);
+      border-color: var(--stone-200);
+    }
+
+    .btn-secondary:hover {
+      background: var(--stone-900);
+      color: var(--white);
+      border-color: var(--stone-900);
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      border: 1px solid var(--stone-200);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card .ai-glow-layer {
+      position: absolute;
+      pointer-events: none;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+          rgba(28, 105, 212, 0.18) 0%,
+          transparent 70%);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    .hero-card:hover .ai-glow-layer {
+      opacity: 1;
+    }
+
+    .hero-card-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .pill {
+      padding: 0.6rem 1.4rem;
+      background: var(--sand-dark);
+      border: 1px solid var(--stone-200);
+      border-radius: var(--radius-capsule);
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: var(--transition-smooth);
+    }
+
+    .pill:hover {
+      background: var(--stone-900);
+      color: var(--white);
+      border-color: var(--stone-900);
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-lead {
+      color: var(--stone-700);
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 4rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--stone-200);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-smooth);
+    }
+
+    .card:hover {
+      transform: scale(1.01) translateY(-4px);
+      box-shadow: var(--shadow-md), 0 0 0 1.5px var(--majorelle-blue);
+      border-color: var(--majorelle-blue);
+    }
+
+    .card.accent-terra:hover {
+      box-shadow: var(--shadow-md), 0 0 0 1.5px var(--terracotta);
+      border-color: var(--terracotta);
+    }
+
+    .card h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .taglist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.4rem;
+    }
+
+    .tag {
+      background: var(--sand-dark);
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-capsule);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .highlight {
+      color: var(--terracotta);
+      font-weight: 600;
+    }
+
+    .contact-card {
+      background: var(--stone-900);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.5rem;
+      height: 3.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: var(--transition-smooth);
+      color: var(--white);
+    }
+
+    .contact-links a:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: var(--majorelle-blue);
+      border-color: transparent;
+      box-shadow: var(--shadow-blue);
+    }
+
+    .contact-links svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: currentColor;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: perspective(1200px) rotateX(8deg) translateY(40px) scale(0.97);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: perspective(1200px) rotateX(0deg) translateY(0) scale(1);
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      pointer-events: none;
+      animation: blobDrift 20s infinite alternate ease-in-out;
+      z-index: 0;
+    }
+
+    .blob-blue {
+      width: 260px;
+      height: 260px;
+      background: rgba(28, 105, 212, 0.18);
+      top: 15%;
+      right: 8%;
+    }
+
+    .blob-terra {
+      width: 240px;
+      height: 240px;
+      background: rgba(224, 122, 95, 0.22);
+      bottom: 12%;
+      left: 5%;
+      animation-delay: -7s;
+    }
+
+    @keyframes blobDrift {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(40px, 25px) scale(1.06);
+      }
+
+      100% {
+        transform: translate(-25px, 45px) scale(0.94);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 5rem 0 4rem;
+      }
+
+      section {
+        padding: 4.5rem 0;
+      }
+
+      .hero-card {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob blob-blue"></div>
+  <div class="blob blob-terra"></div>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Sebai Anes</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="fade-up">
+        <h1>Sebai Anes</h1>
+        <p class="hero-subtitle">
+          Database Student & Technician Superior specializing in practical
+          software and data solutions.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Contact Me</a>
+          <a class="btn btn-secondary" href="#project">View Project</a>
+        </div>
+      </div>
+      <div class="hero-card ai-card fade-up">
+        <div class="ai-glow-layer"></div>
+        <div class="hero-card-content">
+          <h3>Quick Profile</h3>
+          <p>
+            Dedicated to building structured databases and clean interfaces
+            that make workplace systems easier to manage and more secure.
+          </p>
+          <div class="pill-row">
+            <div class="pill">Takwin Algeria</div>
+            <div class="pill">2 Years Study</div>
+            <div class="pill">Database Focus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container grid-2">
+      <div class="fade-up">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-lead">
+          I am a dedicated Database Student with a Technician Superior degree
+          from Takwin Algeria. With two years of formal study and hands-on
+          experience in software and database development, I focus on
+          building practical digital solutions.
+        </p>
+      </div>
+      <div class="card accent-terra fade-up">
+        <h3>Focus Areas</h3>
+        <div class="list">
+          <p>
+            <span class="highlight">Structured Data</span> with secure,
+            reliable schema design.
+          </p>
+          <p>
+            <span class="highlight">Efficient Workflows</span> that simplify
+            operational tasks.
+          </p>
+          <p>
+            <span class="highlight">User-first Interfaces</span> built for
+            clarity and trust.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title fade-up">My Skills</h2>
+      <p class="section-lead fade-up">
+        A focused stack across databases, programming, and mobile
+        development.
+      </p>
+      <div class="grid-2">
+        <div class="card fade-up">
+          <h3>Databases & Tools</h3>
+          <div class="taglist">
+            <span class="tag">MySQL</span>
+            <span class="tag">MS Access</span>
+            <span class="tag">MS Word</span>
+            <span class="tag">MS Excel</span>
+          </div>
+        </div>
+        <div class="card fade-up">
+          <h3>Programming & Web</h3>
+          <div class="taglist">
+            <span class="tag">Python</span>
+            <span class="tag">Pascal</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+        <div class="card accent-terra fade-up">
+          <h3>Mobile Development</h3>
+          <div class="taglist">
+            <span class="tag">Flutter</span>
+            <span class="tag">Dart</span>
+          </div>
+        </div>
+        <div class="card fade-up">
+          <h3>IT Systems & Strengths</h3>
+          <div class="taglist">
+            <span class="tag">Networking</span>
+            <span class="tag">CCTV Security</span>
+          </div>
+          <div class="list" style="margin-top: 1.4rem;">
+            <p>Database design and workflows.</p>
+            <p>Interface structure for ops teams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title fade-up">Experience & Projects</h2>
+      <div class="grid-2">
+        <div class="card fade-up">
+          <h3>Technician Superior Stage</h3>
+          <p>
+            Takwin Algeria | Currently completing a 6-month practical stage
+            focused on software and database development.
+          </p>
+        </div>
+        <div class="card accent-terra fade-up" id="project">
+          <h3>Occupational Health Management App</h3>
+          <p>
+            Developing an application to manage and track employee visits to the
+            workplace clinic (medecine du travail). This capstone project
+            involves structuring a secure database and creating a functional
+            interface to streamline employee health records.
+          </p>
+        </div>
+        <div class="card fade-up">
+          <h3>Private School Management System</h3>
+          <p>
+            A comprehensive administrative platform built using Python, HTML, CSS,
+            and JavaScript, integrated with AI support to streamline school workflows.
+          </p>
+        </div>
+        <div class="card accent-terra fade-up">
+          <h3>Anes Journey (Flutter App)</h3>
+          <p>
+            An all-in-one personal productivity mobile application. Designed to organize
+            daily life efficiently, track habits, and help users stay focused on their goals,
+            responsibilities, and spiritual routines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card fade-up">
+        <h2>Contact & Connect</h2>
+        <p>
+          Open to collaboration, internships, and database-focused projects.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:sebaianesmiloud@gmail.com" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
+          </a>
+          <a href="https://linkedin.com/in/anesmiloudsebai" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-1.85 0-2.56 1.05-2.96 1.58v-1.37h-3v8.35h3v-4.15c0-1.12.2-2.19 1.5-2.19 1.27 0 1.27 1.25 1.27 2.27v4.07h3M7.33 6.83A1.49 1.49 0 0 0 5.8 8.28a1.5 1.5 0 0 0 1.53 1.5c.82 0 1.49-.66 1.49-1.5a1.49 1.49 0 0 0-1.49-1.45m-1.5 11.67h3V9.9h-3v8.6Z" />
+            </svg>
+          </a>
+          <a href="https://github.com/anesdevv" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/sebaianes/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/loud.ness4vibe" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll(".ai-card").forEach((card) => {
+      const glow = card.querySelector(".ai-glow-layer");
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        glow.style.left = e.clientX - rect.left + "px";
+        glow.style.top = e.clientY - rect.top + "px";
+      });
+      card.addEventListener("mouseleave", () => {
+        glow.style.opacity = "0";
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+  </script>
+</body>
+
+</html>
