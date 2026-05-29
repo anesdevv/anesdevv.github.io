@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Best Practices -->
+  <title>anesdevv | Systems, Database & Flutter Engineer</title>
+  <meta name="description" content="Portfolio of anesdevv, specializing in low-overhead Database Engineering, high-performance Flutter mobile applications, and reliable Full-Stack systems.">
+  <meta name="keywords" content="anesdevv, Database Engineer, Flutter Developer, Systems Engineer, Rust, Go, TypeScript, portfolio, developer portfolio">
+  <link rel="canonical" href="https://anesdevv.github.io/">
+  
+  <!-- Open Graph / Meta Card -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anesdevv.github.io/">
+  <meta property="og:title" content="anesdevv | Systems & Flutter Engineer">
+  <meta property="og:description" content="Portfolio of anesdevv, showcasing database engines, offline-first mobile apps, and robust full-stack software.">
+  
+  <!-- Typography & Icons CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Tailwind CSS CDN Setup -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          },
+          colors: {
+            slate: {
+              950: '#020617', // Locked dark tech slate
+              900: '#0f172a',
+              850: '#151e33', // Custom intermediate dark
+              800: '#1e293b',
+            },
+            emerald: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+            },
+            teal: {
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles Overrides -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 selection:bg-emerald-500/20 selection:text-emerald-400 font-sans min-h-[100dvh] flex flex-col justify-between antialiased bg-grid-pattern">
+
+  <!-- Floating Radial Glow behind background grids -->
+  <div class="fixed -top-40 -left-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-0 animate-pulse-slow"></div>
+  <div class="fixed top-1/3 -right-40 w-[450px] h-[450px] bg-teal-500/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-50 w-full glass-panel border-b border-slate-900/60 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+      <!-- Logo Brand -->
+      <a href="#" class="flex items-center gap-2 group" aria-label="anesdevv Portfolio Home">
+        <span class="font-mono text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors duration-200">
+          anes<span class="text-emerald-400">.devv</span>
+        </span>
+      </a>
+
+      <!-- Quick Monospace Links -->
+      <nav class="flex items-center gap-6" aria-label="Main Navigation">
+        <a href="#tech-stack" class="text-xs font-mono text-slate-400 hover:text-slate-100 transition-colors duration-200" id="nav-skills">01.skills</a>
+        <a href="#projects" class="text-xs font-mono text-slate-400 hover:text-slate-100 transition-colors duration-200" id="nav-work">02.work</a>
+        <a href="#contact" class="text-xs font-mono text-slate-400 hover:text-slate-100 transition-colors duration-200" id="nav-contact">03.contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="w-full flex-grow z-10 relative">
+
+    <!-- Hero Section (Top padding capped at pt-24, fits view perfectly) -->
+    <!-- Hero Section (Top padding capped at pt-24, fits view perfectly) -->
+    <section class="max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-20 flex flex-col md:flex-row md:items-center gap-12 min-h-[calc(100vh-4rem)] justify-center" aria-labelledby="hero-title">
+      <!-- Left Hero Details -->
+      <div class="flex-1 space-y-6 md:max-w-xl">
+        <!-- Developer Brand Eyebrow -->
+        <span class="inline-flex items-center gap-2 font-mono text-xs text-emerald-400 font-semibold uppercase tracking-widest">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          portfolio dashboard
+        </span>
+
+        <!-- Stacking Headline -->
+        <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-100 flex flex-col gap-2">
+          <span class="block">Database Student</span>
+          <span class="block text-gradient-hybrid">Technician Superior</span>
+          <span class="block font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-slate-400 tracking-normal">
+            &lt;<span class="text-emerald-400">Developer</span> /&gt;
+          </span>
+        </h1>
+
+        <!-- Subtext description (Under 20 words, clean & punchy) -->
+        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-[65ch]">
+          Database architect, Flutter expert, and Full-Stack engineer crafting zero-overhead, highly-scalable software and elegant digital experiences.
+        </p>
+
+        <!-- Stacking Hero CTAs -->
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#projects" class="active-tactile inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-emerald-500 text-slate-950 font-medium hover:bg-emerald-400 transition-colors duration-200 shadow-lg shadow-emerald-500/10 text-sm" id="hero-primary-cta">
+            <i class="ph-bold ph-folder-open text-base"></i> View Projects
+          </a>
+          <a href="#contact" class="active-tactile inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-slate-800 hover:border-slate-700 hover:bg-slate-900/30 text-slate-300 hover:text-slate-100 transition-colors duration-200 text-sm" id="hero-secondary-cta">
+            <i class="ph-bold ph-envelope text-base"></i> Let's Talk
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Interactive Compiler Window (Satisfies beautiful tech visual asset) -->
+      <div class="flex-1 w-full max-w-lg md:max-w-none animate-fade-in-up animation-delay-200">
+        <div class="glass-panel rounded-xl overflow-hidden border border-slate-800 bg-slate-950/60 shadow-2xl">
+          <!-- Terminal Header -->
+          <div class="flex items-center justify-between px-4 py-3 border-b border-slate-900 bg-slate-950/90">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-green-500/60"></span>
+            </div>
+            <span class="font-mono text-[10px] text-slate-500 tracking-wider">compiler@anesdevv:~$</span>
+            <div class="w-6"></div> <!-- Spacer -->
+          </div>
+
+          <!-- Terminal Content -->
+          <div class="p-6 font-mono text-xs leading-relaxed space-y-3.5 text-slate-300 overflow-x-auto">
+            <div class="flex gap-2">
+              <span class="text-emerald-500 font-bold">$</span>
+              <span>python main.py --app employee-management-system</span>
+            </div>
+            <div class="text-slate-500 space-y-1 pl-4">
+              <div>Initializing CustomTkinter render frame...</div>
+              <div class="text-emerald-400">✓ Thread pool started. Tkinter GUI loaded successfully.</div>
+              <div class="text-teal-400">Connected to local SQL storage cache.</div>
+            </div>
+            <div class="flex gap-2 pt-2 border-t border-slate-900/40">
+              <span class="text-teal-500 font-bold">$</span>
+              <span>flutter build apk --target=lib/main.dart (anes-journey)</span>
+            </div>
+            <div class="text-slate-500 pl-4">
+              <div>Compiling Dart asset nodes and visual transitions...</div>
+              <div class="text-teal-400">✓ APK build completed. Target deployed successfully (24.6 MB).</div>
+            </div>
+            <div class="flex gap-2 pt-2 border-t border-slate-900/40">
+              <span class="text-slate-400 font-bold">$</span>
+              <span>npm run dev (infinite-xo)</span>
+            </div>
+            <div class="text-slate-500 pl-4">
+              <div class="text-emerald-400">✓ Next.js compiler ready. Game engine serving on http://localhost:3000</div>
+              <div class="text-slate-300">System state: <span class="text-emerald-400 font-semibold animate-pulse">ACTIVE</span><span class="terminal-cursor"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section (Bento Grid Layout) -->
+    <section id="tech-stack" class="max-w-6xl mx-auto px-4 md:px-8 py-20 border-t border-slate-900/80" aria-labelledby="skills-headline">
+      <div class="mb-12">
+        <h2 id="skills-headline" class="text-3xl font-extrabold tracking-tight text-slate-100">
+          Curated Tech Stack<span class="text-emerald-400">.</span>
+        </h2>
+        <p class="text-slate-400 text-sm mt-2 max-w-xl">
+          Core toolkits, database systems, and mobile architectures used daily to deliver low-latency, scalable solutions.
+        </p>
+      </div>
+
+      <!-- Perfect Bento Grid (Rows fill columns 3 wide, strict layout, no blanks) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Cell 1 (Span 2): Languages (Visual background pattern) -->
+        <div class="glass-panel p-6 rounded-xl border border-slate-800/80 bg-slate-900/20 md:col-span-2 relative overflow-hidden group">
+          <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-emerald-500/10 transition-colors duration-300"></div>
+          
+          <div class="flex items-center gap-2 text-slate-100 font-bold font-mono mb-4 text-sm">
+            <span class="text-emerald-400">&lt;</span> Languages & Runtimes <span class="text-emerald-400">/&gt;</span>
+          </div>
+          
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+            <!-- Dart -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/dart/34d399" class="w-5 h-5 object-contain" alt="Dart Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">Dart</span>
+                <span class="text-[10px] text-slate-500">Flutter Mobile</span>
+              </div>
+            </div>
+            <!-- TypeScript -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/typescript/34d399" class="w-5 h-5 object-contain" alt="TypeScript Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">TypeScript</span>
+                <span class="text-[10px] text-slate-500">Web Apps</span>
+              </div>
+            </div>
+            <!-- Python -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/python/34d399" class="w-5 h-5 object-contain" alt="Python Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">Python</span>
+                <span class="text-[10px] text-slate-500">Systems / Scripts</span>
+              </div>
+            </div>
+            <!-- HTML -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <div class="w-5 h-5 flex items-center justify-center text-emerald-400">
+                <i class="ph-bold ph-file-html text-lg"></i>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">HTML5</span>
+                <span class="text-[10px] text-slate-500">Structure / SEO</span>
+              </div>
+            </div>
+            <!-- CSS -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <div class="w-5 h-5 flex items-center justify-center text-emerald-400">
+                <i class="ph-bold ph-file-css text-lg"></i>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">CSS3</span>
+                <span class="text-[10px] text-slate-500">Responsive UI</span>
+              </div>
+            </div>
+            <!-- JS -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <div class="w-5 h-5 flex items-center justify-center text-emerald-400">
+                <i class="ph-bold ph-file-js text-lg"></i>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">JavaScript</span>
+                <span class="text-[10px] text-slate-500">Dynamic Logic</span>
+              </div>
+            </div>
+            <!-- Pascal -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <div class="w-5 h-5 flex items-center justify-center text-emerald-400">
+                <i class="ph-bold ph-brackets-angle text-base"></i>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">Pascal</span>
+                <span class="text-[10px] text-slate-500">Algorithms / Sys</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cell 2 (Span 1): Architectural Paradigms (Monospace typographic focus) -->
+        <div class="glass-panel p-6 rounded-xl border border-slate-800/80 bg-slate-900/20 md:col-span-1">
+          <div class="flex items-center gap-2 text-slate-100 font-bold font-mono mb-4 text-sm">
+            <span class="text-teal-400">&lt;</span> Engineering <span class="text-teal-400">/&gt;</span>
+          </div>
+          <ul class="space-y-3.5 mt-4 text-xs font-mono text-slate-400">
+            <li class="flex items-center gap-2">
+              <i class="ph-bold ph-shield-check text-emerald-400 text-sm"></i>
+              <span>Distributed Consensus (Raft)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ph-bold ph-cpu text-emerald-400 text-sm"></i>
+              <span>Concurrent Multithreading</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ph-bold ph-git-merge text-emerald-400 text-sm"></i>
+              <span>Offline-First Replication</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ph-bold ph-tree text-emerald-400 text-sm"></i>
+              <span>LSM-Tree & B-Tree Storage</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ph-bold ph-key-return text-emerald-400 text-sm"></i>
+              <span>ACID Transactions & MVCC</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Cell 3 (Span 1): Mobile Ecosystem -->
+        <div class="glass-panel p-6 rounded-xl border border-slate-800/80 bg-slate-900/20 md:col-span-1">
+          <div class="flex items-center gap-2 text-slate-100 font-bold font-mono mb-4 text-sm">
+            <span class="text-teal-400">&lt;</span> Mobile (Flutter) <span class="text-teal-400">/&gt;</span>
+          </div>
+          <div class="space-y-4 mt-6">
+            <div class="flex items-start gap-3">
+              <div class="p-2 rounded bg-slate-950/80 border border-slate-800/80 text-emerald-400 text-base">
+                <i class="ph-bold ph-waveform"></i>
+              </div>
+              <div>
+                <span class="text-xs font-semibold text-slate-200 block">BLoC State Management</span>
+                <span class="text-[10px] text-slate-500 leading-relaxed block">Clean decoupled event streams.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="p-2 rounded bg-slate-950/80 border border-slate-800/80 text-teal-400 text-base">
+                <i class="ph-bold ph-database"></i>
+              </div>
+              <div>
+                <span class="text-xs font-semibold text-slate-200 block">Encrypted Local SQLite Cache</span>
+                <span class="text-[10px] text-slate-500 leading-relaxed block">Secure, reliable offline caches.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cell 4 (Span 2): Databases & Core Infrastructures (Filled row perfectly) -->
+        <div class="glass-panel p-6 rounded-xl border border-slate-800/80 bg-slate-900/20 md:col-span-2 relative overflow-hidden group">
+          <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-teal-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-teal-500/10 transition-colors duration-300"></div>
+          
+          <div class="flex items-center gap-2 text-slate-100 font-bold font-mono mb-4 text-sm">
+            <span class="text-emerald-400">&lt;</span> Infrastructure & Storage <span class="text-emerald-400">/&gt;</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-6">
+            <!-- PostgreSQL -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/postgresql/34d399" class="w-5 h-5 object-contain" alt="PostgreSQL Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">PostgreSQL</span>
+                <span class="text-[10px] text-slate-500">Relational & Indexes</span>
+              </div>
+            </div>
+            <!-- SQLite -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/sqlite/34d399" class="w-5 h-5 object-contain" alt="SQLite Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">SQLite</span>
+                <span class="text-[10px] text-slate-500">Local Offline Cache</span>
+              </div>
+            </div>
+            <!-- Redis -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/redis/34d399" class="w-5 h-5 object-contain" alt="Redis Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">Redis</span>
+                <span class="text-[10px] text-slate-500">In-Memory Cache</span>
+              </div>
+            </div>
+            <!-- Kafka -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/apachekafka/34d399" class="w-5 h-5 object-contain" alt="Apache Kafka Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">Kafka / RabbitMQ</span>
+                <span class="text-[10px] text-slate-500">Stream Processing</span>
+              </div>
+            </div>
+            <!-- Docker -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/docker/34d399" class="w-5 h-5 object-contain" alt="Docker Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">Docker</span>
+                <span class="text-[10px] text-slate-500">Isolation & Envs</span>
+              </div>
+            </div>
+            <!-- Kubernetes -->
+            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800/80 flex items-center gap-3">
+              <img src="https://cdn.simpleicons.org/kubernetes/34d399" class="w-5 h-5 object-contain" alt="Kubernetes Logo" />
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-slate-200">Kubernetes</span>
+                <span class="text-[10px] text-slate-500">Distributed Pods</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Dynamic Projects Section -->
+    <section id="projects" class="max-w-6xl mx-auto px-4 md:px-8 py-20 border-t border-slate-900/80" aria-labelledby="projects-headline">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+        <div>
+          <h2 id="projects-headline" class="text-3xl font-extrabold tracking-tight text-slate-100">
+            Featured Projects<span class="text-emerald-400">.</span>
+          </h2>
+          <p class="text-slate-400 text-sm mt-2 max-w-xl">
+            Live repositories fetched dynamically from the GitHub API. Use categories below to filter by specialization.
+          </p>
+        </div>
+
+        <!-- Premium Filter Sub-navigation -->
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Project filter categories">
+          <button class="active-tactile filter-btn px-4 py-2 text-xs font-mono rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:text-emerald-300 transition-all duration-200" data-filter="all">
+            all_repos
+          </button>
+          <button class="active-tactile filter-btn px-4 py-2 text-xs font-mono rounded-lg border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200 transition-all duration-200" data-filter="mobile">
+            mobile_flutter
+          </button>
+          <button class="active-tactile filter-btn px-4 py-2 text-xs font-mono rounded-lg border border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200 transition-all duration-200" data-filter="web">
+            full_stack_web
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Cards Grid (Responsive Columns, no Flex math) -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by assets/js/app.js. Includes skeletons upon initial loading -->
+      </div>
+    </section>
+
+    <!-- Mini-Contact / Call-To-Action Block (Premium visual layout) -->
+    <section id="contact" class="max-w-6xl mx-auto px-4 md:px-8 py-20 border-t border-slate-900/80" aria-labelledby="contact-headline">
+      <div class="glass-panel p-8 md:p-12 rounded-2xl border border-slate-800/80 bg-slate-900/10 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-10">
+        <div class="absolute -left-10 -bottom-10 w-56 h-56 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -right-10 -top-10 w-56 h-56 bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="space-y-4 max-w-md z-10">
+          <h2 id="contact-headline" class="text-3xl font-extrabold tracking-tight text-slate-100">
+            Let's build systems<span class="text-emerald-400">.</span>
+          </h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            I am currently open to consulting engagements, architectural reviews, and high-impact full-time roles in database engineering and mobile architecture teams.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 z-10 w-full md:w-auto">
+          <!-- Main Direct Mail Contact -->
+          <a href="mailto:sebaianesmiloud@gmail.com" class="active-tactile inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400 transition-colors duration-200 shadow-lg shadow-emerald-500/15 text-sm" id="footer-contact-cta">
+            <i class="ph-bold ph-paper-plane-tilt text-base"></i> Send an Email
+          </a>
+          <!-- Copy Monospace Email Indicator -->
+          <button onclick="navigator.clipboard.writeText('sebaianesmiloud@gmail.com'); alert('Email address copied to clipboard!');" 
+                  class="active-tactile inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-slate-800 bg-slate-950 hover:bg-slate-900/50 hover:border-slate-700 text-slate-400 hover:text-slate-200 transition-colors duration-200 font-mono text-xs"
+                  aria-label="Copy Miloud's email address to clipboard">
+            <i class="ph-bold ph-copy text-sm"></i> sebaianesmiloud@gmail.com
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Clean Minimalist Footer -->
+  <footer class="w-full border-t border-slate-900/60 glass-panel mt-12 py-8 z-10 relative" aria-label="Page Footer">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <!-- Monospace Copy -->
+      <div class="flex items-center gap-4 text-xs font-mono text-slate-500">
+        <span>© 2026 anesdevv. All rights reserved.</span>
+      </div>
+
+      <!-- High-Contrast Accessible Icons (Proper labels) -->
+      <div class="flex items-center gap-5">
+        <a href="https://github.com/anesdevv" target="_blank" rel="noopener noreferrer" 
+           class="p-2 rounded bg-slate-950/60 border border-slate-900 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all duration-200 text-lg flex items-center justify-center" 
+           aria-label="View anesdevv's GitHub profile">
+          <i class="ph-fill ph-github-logo"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/anesmiloudsebai/" target="_blank" rel="noopener noreferrer" 
+           class="p-2 rounded bg-slate-950/60 border border-slate-900 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all duration-200 text-lg flex items-center justify-center" 
+           aria-label="View anesdevv's LinkedIn profile">
+          <i class="ph-fill ph-linkedin-logo"></i>
+        </a>
+        <a href="https://www.instagram.com/sebaianes/" target="_blank" rel="noopener noreferrer" 
+           class="p-2 rounded bg-slate-950/60 border border-slate-900 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all duration-200 text-lg flex items-center justify-center" 
+           aria-label="View anesdevv's Instagram profile">
+          <i class="ph-fill ph-instagram-logo"></i>
+        </a>
+        <a href="mailto:sebaianesmiloud@gmail.com" 
+           class="p-2 rounded bg-slate-950/60 border border-slate-900 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all duration-200 text-lg flex items-center justify-center" 
+           aria-label="Send an email to anesdevv">
+          <i class="ph-fill ph-envelope"></i>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Asynchronous Code Loader -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

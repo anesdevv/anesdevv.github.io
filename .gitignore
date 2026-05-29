@@ -1,0 +1,5 @@
+.agents/
+.gemini/
+.impeccable/
+.system_generated/
+*.log
